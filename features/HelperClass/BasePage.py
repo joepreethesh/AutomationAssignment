@@ -37,7 +37,10 @@ class BasePage():
                                                      ConfigReader.readConfig(configFileName, passwordLocator))
         passwordTextField.clear()
         passwordTextField.send_keys(passwordText)
-        time.sleep(10)
+
+    def click(self, locator, configFileName, locatorName):
+        self.driver.find_element(locator, ConfigReader.readConfig(configFileName,locatorName)).click()
+
 
 
 
