@@ -1,4 +1,5 @@
 import os
+import re
 import time
 
 from selenium import webdriver
@@ -26,6 +27,28 @@ class productPage(BasePage):
         is_alphabetical_order = InventoryItemList == sorted(InventoryItemList)
         print(is_alphabetical_order)
         return InventoryItemList
+        # total_tax = 0
+        # elementText = self.driver.find_element(By.CLASS_NAME, "summary_tax_label").text
+        # print(elementText)
+        #
+        # tax_match = re.search(r'\d+\.\d+', elementText)
+        # if tax_match:
+        #     total_tax = float(tax_match.group())
+        #
+        #
+        # inventoryItems = []
+        # inventoryItemList = self.driver.find_elements(By.CLASS_NAME, "inventory_item_price")
+        # for element in inventoryItemList:
+        #     inventoryItems.append(element.text)
+        #
+        # for i in range(len(inventoryItems) - 1):
+        #     current_price = float(inventoryItems[i][1:])
+        #     next_price = float(inventoryItems[i + 1][1:])
+        # print(total_tax)
+        # total_price = float(current_price + next_price)+total_tax
+        #
+        # print(total_price)
+
 
 
 
@@ -36,4 +59,4 @@ class productPage(BasePage):
 # driver.maximize_window()
 # helper = productPage(driver)
 # # helper.clickOnSortOrder(3)
-# helper.getInventoryItemNamesInProductScreen()
+# helper.getInventoryLists()

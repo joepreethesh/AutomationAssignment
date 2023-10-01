@@ -21,7 +21,7 @@ class loginPage(BasePage):
         self.click(By.ID, "Login", "loginButton_ID")
 
     def loginHomeScreenStatus(self):
-        homeScreenStatus = self.isElementDisplayed(By.CLASS_NAME, "Login", "loginHomePage_CLASSNAME" )
+        homeScreenStatus = self.isElementDisplayed(By.CLASS_NAME, "Login", "loginHomePage_CLASSNAME")
         return homeScreenStatus
 
     def clickOnHamburgerIcon(self):

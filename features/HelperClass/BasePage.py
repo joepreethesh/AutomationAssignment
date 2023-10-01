@@ -57,6 +57,34 @@ class BasePage():
             inventoryItems.append(element.text)
         return inventoryItems
 
+    def addItemsToCart(self, locator, configFileName, locatorName, cartItems):
+        addToCartButtonList = self.driver.find_elements(locator, ConfigReader.readConfig(configFileName, locatorName))
+        if cartItems == 3:
+            for i in range(min(cartItems, len(addToCartButtonList))):
+                addToCartButtonList[i].click()
+
+        if cartItems == 2:
+            addToCartButtonList[0].click()
+            addToCartButtonList[-1].click()
+
+    def sendKeys(self, locator, configFileName, locatorName, InputText):
+        textfield = self.driver.find_element(locator, ConfigReader.readConfig(configFileName, locatorName))
+        textfield.send_keys(InputText)
+
+    def getText(self, locator, configFileName, locatorName):
+        elementText = self.driver.find_element(locator, ConfigReader.readConfig(configFileName, locatorName))
+        return elementText.text
+
+
+
+
+
+
+
+
+
+
+
 
 
 
