@@ -1,6 +1,8 @@
 import time
 
+from selenium.webdriver.chrome import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
 
 from Utilities import ConfigReader
 class BasePage():
@@ -40,6 +42,23 @@ class BasePage():
 
     def click(self, locator, configFileName, locatorName):
         self.driver.find_element(locator, ConfigReader.readConfig(configFileName,locatorName)).click()
+
+    def selectItemFromDropdown(self, locator, configFileName, locatorName, index):
+        select_element = self.driver.find_element(locator, ConfigReader.readConfig(configFileName,locatorName))
+        select_element.click()
+        select = Select(select_element)
+        time.sleep(2)
+        select.select_by_index(index)
+
+    def getInventoryItemNamesInProductScreen(self, locator, configFileName, locatorName):
+        inventoryItems = []
+        inventoryItemList = self.driver.find_elements(locator, ConfigReader.readConfig(configFileName,locatorName))
+        for element in inventoryItemList:
+            inventoryItems.append(element.text)
+        return inventoryItems
+
+
+
 
 
 
