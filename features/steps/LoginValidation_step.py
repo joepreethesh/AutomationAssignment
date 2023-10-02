@@ -50,7 +50,6 @@ def step_impl(context, Invaliduser):
 
 @then(u'Error message is displayed')
 def step_impl(context):
-    time.sleep(5)
     errorPromptStatus = context.login.checkErrorMessageForInvalidLogin()
     assert errorPromptStatus, "Error message is not displayed for Invalid Login"
     time.sleep(3)
