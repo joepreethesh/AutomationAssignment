@@ -53,7 +53,9 @@ class productPage(BasePage):
 
 
 # current_directory = os.getcwd()
-# chrome_driver_path = os.path.join(current_directory, 'webdriver', 'chromedriver')
+# print(current_directory)
+# chrome_driver_path = os.path.join('/Users/joe/AutomationAssignment', 'webdriver', 'chromedriver')
+# print(chrome_driver_path)
 # driver = webdriver.Chrome()
 # driver.get("https://www.saucedemo.com")
 # driver.maximize_window()
